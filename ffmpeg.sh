@@ -61,7 +61,7 @@ function ffmpeg_inst()
     # aom build with cmake 3, master branch，0.1.0 has not CMakeList.txt
     inst $src https://aomedia.googlesource.com/aom master "mkdir -p $dst/aom \&\& cd $dst/aom \&\& cmake -D CMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=$dst $src/aom"
 
-    inst $src https://github.com/FFmpeg/FFmpeg git "./configure --prefix=$dst --enable-hardcoded-tables --pkg-config-flags=--static --extra-cflags=-I$dst/include --extra-ldflags=-L$dst/lib --extra-libs=-lpthread --extra-libs=-lm --extra-ldexeflags=-static --bindir=$bin --enable-gpl --enable-nonfree --enable-openssl --enable-protocol=rtmp --enable-librtmp --enable-demuxer=rtsp --enable-muxer=rtsp --enable-libfreetype --enable-libfdk-aac --enable-libmp3lame --enable-libopus --enable-libvorbis --enable-libtheora --enable-libx264 --enable-libx265 --enable-libvpx --enable-libwebp --enable-ffplay --enable-libaom --disable-shared --enable-static --enable-gpl --enable-nonfree"
+    inst $src https://github.com/ksvc/FFmpeg.git "git reset --hard origin/release/3.4 \&\&  ./configure --prefix=$dst --enable-hardcoded-tables --pkg-config-flags=--static --extra-cflags=-I$dst/include --extra-ldflags=-L$dst/lib --extra-libs=-lpthread --extra-libs=-lm --extra-ldexeflags=-static --bindir=$bin --enable-gpl --enable-nonfree --enable-openssl --enable-protocol=rtmp --enable-librtmp --enable-demuxer=rtsp --enable-muxer=rtsp --enable-libfreetype --enable-libfdk-aac --enable-libmp3lame --enable-libopus --enable-libvorbis --enable-libtheora --enable-libx264 --enable-libx265 --enable-libvpx --enable-libwebp --enable-ffplay --enable-libaom --disable-shared --enable-static --enable-gpl --enable-nonfree"
 
 }
 
